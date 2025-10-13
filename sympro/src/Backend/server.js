@@ -39,7 +39,7 @@ const createTableQuery = async () => {
     }
 };
 
-app.post('/api/register', async(req, res) =>{
+app.post('https://mysymposite.onrender.com/api/register', async(req, res) =>{
 const {name, phonenumber, department, college, year} = req.body;
 
 try{
@@ -57,6 +57,6 @@ try{
 
 app.listen(4000, async() => {
     await createTableQuery();
-    console.log("Server is running on port https://localhost:4000/api/register");
+    console.log("Server is running on port https://mysymposite.onrender.com/api/register");
 })
 
