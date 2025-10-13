@@ -8,10 +8,10 @@ app.use(express.json());
 
 
 const pool = new Pool({
-user:'postgres',
-host:'localhost',
-database:'input',
-password:'haadhi015',
+user:'render_tzbw_user',
+host:'dpg-d3m5ofu3jp1c73fmu48g-a',
+database:'render_tzbw',
+password:'ABKyD2PpOdbaLTqEP5lW45MAfbRSwtxf',
 port:5432,
 
 });
