@@ -1,0 +1,64 @@
+import express from 'express';
+import cors from 'cors';
+import {Pool} from 'pg';
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+
+const pool = new Pool({
+user:'postgres',
+host:'localhost',
+database:'input',
+password:'haadhi015',
+port:5432,
+
+});
+
+
+
+const createTableQuery = async () => {
+
+    const query = `
+    CREATE TABLE IF NOT EXISTS participants (
+      id SERIAL PRIMARY KEY,
+      name TEXT NOT NULL,
+      phonenumber TEXT NOT NULL,
+      department TEXT NOT NULL,
+      college TEXT NOT NULL,
+      year TEXT NOT NULL
+
+    );
+  `;
+
+    try{
+        await pool.query(query);
+        console.log("Table created successfully or already exists.");
+    }
+    catch(err){
+        console.error("Error creating table:", err);
+    }
+};
+
+app.post('/api/register', async(req, res) =>{
+const {name, phonenumber, department, college, year} = req.body;
+
+try{
+    const result = await pool.query(
+        "INSERT INTO participants (name, phonenumber, department, college, year) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+        [name, phonenumber, department, college, year]
+    );
+    res.status(201).json({message: "Registration successful", participant: result.rows[0]});
+}catch(err){
+    console.error("Error inserting data:", err);
+    res.status(500).json({message: "Internal server error"});
+}
+
+});
+
+app.listen(4000, async() => {
+    await createTableQuery();
+    console.log("Server is running on port https://localhost:4000/api/register");
+})
+
