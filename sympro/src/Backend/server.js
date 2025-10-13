@@ -34,7 +34,7 @@ const createTableQuery = async () => {
   }
 };
 
-app.post('https://mysymposite.onrender.com/api/register', async (req, res) => {
+app.post('/api/register', async (req, res) => {
   const { name, phonenumber, department, college, year } = req.body;
 
   try {
