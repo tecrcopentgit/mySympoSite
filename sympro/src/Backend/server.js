@@ -8,11 +8,9 @@ app.use(express.json());
 
 
 const pool = new Pool({
-user:'render_tzbw_user',
-host:'dpg-d3m5ofu3jp1c73fmu48g-a',
-database:'render_tzbw',
-password:'ABKyD2PpOdbaLTqEP5lW45MAfbRSwtxf',
-port:5432,
+connectionString:'postgresql://render_tzbw_user:ABKyD2PpOdbaLTqEP5lW45MAfbRSwtxf@dpg-d3m5ofu3jp1c73fmu48g-a.oregon-postgres.render.com/render_tzbw',
+
+ssl:{rejectUnauthorized:false}  
 
 });
 
