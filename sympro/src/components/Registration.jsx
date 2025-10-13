@@ -14,7 +14,7 @@ export default function Registration(){
     
       const handleSubmit = async (e) => {
         e.preventDefault();
-        await fetch("/api/register",{
+        await fetch("https://mysymposite.onrender.com/api/register",{
           method:"POST",
           headers:{"Content-Type":"application/json"},
           body:JSON.stringify(formData)
