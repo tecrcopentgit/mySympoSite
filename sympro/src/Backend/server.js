@@ -6,7 +6,9 @@ import { Pool } from 'pg';
 
 
 const app = express();
-app.use(cors({origin:'https://tecrcopentgit.github.io'}));
+app.use(cors({origin:'https://tecrcopentgit.github.io',
+  methods:['POST']
+}));
 app.use(express.json());
 
 const pool = new Pool({
