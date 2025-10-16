@@ -28,7 +28,7 @@ return (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
-                  className="text-white font-bold hover:text-purple-400 transition-colors capitalize"
+                  className="text-white font-bold hover:text-purple-400 transition-colors capitalize "
                 >
                   {item}
                 </button>

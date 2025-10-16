@@ -15,7 +15,7 @@ export default function Hero(){
 
         <>
         <section className="pt-32 pb-20 px-4 bg-gradient-to-br from-amber-500 to-pink-500">
-        <div className="max-w-7xl mx-auto text-center">
+        <div className="max-w-7xl mx-auto text-center animate-[fadeIn_1s_ease-out_1]" style={{ animationFillMode: 'forwards' }} >
             
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
            <br></br>
@@ -46,10 +46,13 @@ export default function Hero(){
             onClick={() => scrollToSection('Registration')}
             className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full font-semibold hover:scale-105 transition-transform inline-flex items-center gap-2"
           >
-            Register Now <ArrowRight className="w-5 h-5" />
+            Register Now <ArrowRight className="w-5 h-5 " />
           </button>
         </div>
       </section>
+
+
+      
         
         </>
     )
